@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'golden-shop';
+  title: string = 'golden-shop';
+  constructor(private translate: TranslateService) {
+    translate.setDefaultLang('en');
+  }
+
+  onButtonClick() {
+    let foo = this.translate.instant('demo.appName', {name: 'gold shop'});
+    console.log(foo)
+  }
 }

@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>login </h1>
+<div mat-dialog-content>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="email" name="email"  matInput placeholder="Email"/>
+        </mat-form-field>
+      
+        <mat-form-field class="example-full-width">
+          <input type="password" name="password" [(ngModel)]="password" matInput placeholder="Password"/>
+        </mat-form-field>
+      </form>
+      <span *ngIf="loader">loader</span>
+      <button
+      (click)="togleMode()"
+       mat-button>{{ mode === 'SignIn' ? 'Sign Up' : 'Sign In' }}</button>
+</div>
+<div mat-dialog-actions>
+  <button mat-button>Cancel</button>
+  <button mat-button  cdkFocusInitial
+    (click)="onSignInUp()"
+  >Submit</button>
+</div>

@@ -1,0 +1,10 @@
+.header-cell {
+  position: absolute;
+  border: 1px solid grey;
+  background-color: #d2d2d2;
+  box-sizing: border-box;
+  padding: 3px 6px;
+  .header-cell_content-wrapper {
+    text-align: center;
+  }
+}

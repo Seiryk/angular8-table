@@ -1,0 +1,31 @@
+<footer>
+  <div class="info">
+    <div>
+      <p>Оформить заказ</p>
+      <div>0 93 123 12 12</div>
+      <p>Звоните нам с 9:00 до 21:00</p>
+      <p>Без выходных</p>
+    </div>
+    <div>
+      <p>Служба поддержки</p>
+      <div>0 93 123 12 12</div>
+      <p>Звоните нам с 9:00 до 21:00</p>
+      <p>Без выходных</p>
+    </div>
+  </div>
+  <div>
+    <p>категории</p>
+    <ul>
+      <li *ngFor="let item of category">{{ item }}</li>
+    </ul>
+  </div>
+  <div>
+    <p>клиентам</p>
+    <ul>
+      <li *ngFor="let item of toClients">
+          <a [routerLink]="item.link" routerLinkActive="active">{{item.label}}</a>
+      </li>
+    </ul>
+  </div>
+  <div>© Интернет-магазин Цитрус - гаджеты и аксессуары 2000-{{ currentYear }}</div>
+</footer>

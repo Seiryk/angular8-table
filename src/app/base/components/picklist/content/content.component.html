@@ -1,0 +1,19 @@
+<ul #wrappUl>
+  <li
+  (mouseenter)='onMouseEnter(i)'
+  *ngFor="let item of data; index as i">
+  <div class="item-content-before" *ngIf='hovered === i && item.items && !openToRight'>
+    <picklist-content
+    [intersectionCallback]='_intersectionCallback'
+    [data]='item.items'></picklist-content>
+  </div>
+  <div class='list-item'>
+    {{item.label}}
+  </div>
+  <div class="item-content-after" *ngIf='hovered === i && item.items && openToRight'>
+    <picklist-content
+    [intersectionCallback]='_intersectionCallback'
+    [data]='item.items'></picklist-content>
+  </div>
+</li>
+</ul>

@@ -1,0 +1,37 @@
+ul {
+  position: absolute;
+  list-style-type: none;
+  padding: unset;
+  margin: 0px;
+  width: 200px;
+  box-shadow: 0px 0px 5px;
+  top: 3px;
+  background-color: white;
+  li {
+    display: flex;
+    margin: 5px 2px;
+    .list-item {
+      width: 100%;
+    }
+    .item-content-before {
+      position: relative;
+      top: -3px;
+      right: 2px;
+      & > picklist-content > ul {
+        right: 3px;
+      }
+    }
+    .item-content-after {
+      position: relative;
+      top: -3px;
+      left: 2px;
+      & > picklist-content > ul {
+        left: 3px;
+      }
+    }
+    &:hover {
+      background-color: rgb(228, 228, 228);
+      cursor: pointer;
+    }
+  }
+}

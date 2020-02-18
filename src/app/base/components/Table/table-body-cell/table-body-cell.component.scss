@@ -1,0 +1,9 @@
+.body-cell {
+  position: absolute;
+  border: 1px solid grey;
+  box-sizing: border-box;
+  padding: 3px 6px;
+  .body-cell_content-wrapper {
+    text-align: center;
+  }
+}

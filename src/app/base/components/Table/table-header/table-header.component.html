@@ -1,0 +1,15 @@
+<div class="table-header">
+  <div
+    class='table-header_content-wrapper'
+    [ngStyle]='style'
+  >
+    <app-table-header-cell
+      *ngFor='let metaItem of meta; index as i'
+      [metaItem]='metaItem'
+      [index]='i'
+      [getWidth]='getWidth'
+      [getHeight]='getHeight'
+      cellLayoutCulc
+    ></app-table-header-cell>
+  </div>
+</div>

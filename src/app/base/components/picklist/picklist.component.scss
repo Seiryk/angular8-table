@@ -1,0 +1,14 @@
+.picklist {
+  width: fit-content;
+  .picklist-input {
+    width: 200px;
+    height: 25px;
+    outline: none;
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+  }
+  .content {
+    position: relative;
+    left: 2px;
+  }
+}

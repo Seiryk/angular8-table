@@ -1,0 +1,8 @@
+<div class="picklist" #picklist>
+  <input type="text" class="picklist-input" (click)='onInputClick()'>
+  <div *ngIf='isOpen' class="content">
+    <picklist-content
+    [onDocClick]='onDocClick'
+    [data]='data'></picklist-content>
+  </div>
+</div>
