@@ -1,6 +1,6 @@
 const data = (() => {
   const arr = [];
-  for (let index = 0; index < 100; index++) {
+  for (let index = 0; index < 10000; index++) {
     console.log('object')
     arr.push({
       label_1: `data ${index}`,

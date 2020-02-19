@@ -53,6 +53,7 @@ import { TableHeaderCellComponent } from './base/components/Table/table-header-c
 import { TableBodyComponent } from './base/components/Table/table-body/table-body.component';
 import { TableBodyCellComponent } from './base/components/Table/table-body-cell/table-body-cell.component';
 import { TableBodyRowComponent } from './base/components/Table/table-body-row/table-body-row.component';
+import { MatrixCalcDirective } from './base/derectives/matrix-calc.directive';
 
 
 
@@ -73,6 +74,7 @@ import { TableBodyRowComponent } from './base/components/Table/table-body-row/ta
     TableBodyComponent,
     TableBodyCellComponent,
     TableBodyRowComponent,
+    MatrixCalcDirective,
   ],
   imports: [
     FormsModule,

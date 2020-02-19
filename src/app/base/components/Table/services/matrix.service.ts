@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class MatrixService {
   matrix = new Map();
+  scrollMatrix = new Map();
 
   setItemToMatrix = ({ dataIdx, metaIdx, objForSave }) => {
     let row = this.matrix.get(dataIdx);
@@ -11,6 +13,27 @@ export class MatrixService {
       this.matrix.set(dataIdx, row);
     }
     row.set(metaIdx, objForSave);
+  }
+
+  setItemToScrollMatrix = (dataItem, bodyHeight, top) => {
+    const position = Math.floor(top / bodyHeight);
+    const existed = this.scrollMatrix.get(position) || []
+    existed.push(dataItem);
+    this.scrollMatrix.set(position, existed)
+  }
+  getItemToScrollMatrix = (scrollTop, bodyHeight) => {
+    const position = Math.floor(scrollTop / bodyHeight);
+    const prev = this.scrollMatrix.get(position - 1) || []
+    const current = this.scrollMatrix.get(position) || []
+    const next = this.scrollMatrix.get(position + 1) || []
+    
+    return [...prev, ...current, ...next]
+    // return current
+  }
+
+  getData = ({ dataIdx, metaIdx }) => {
+    const row = this.matrix.get(dataIdx);
+    return row.get(metaIdx);
   }
 
   getPrevItems = ({ dataIdx, metaIdx }) => {
@@ -46,13 +69,16 @@ export class MatrixService {
     const objForSave = { left, top, width, height };
     this.setItemToMatrix({ dataIdx, metaIdx, objForSave });
 
-    return {
-      left: `${left}px`,
-      top: `${top}px`,
-      width: `${width}px`,
-      height: `${height}px`,
-    }
+    return objForSave
 
   }
-  constructor() { }
+
+
+
+  //--------
+  increaseHeightSubj = new Subject();
+  scrollSubj = new Subject();
+  constructor() { 
+
+  }
 }

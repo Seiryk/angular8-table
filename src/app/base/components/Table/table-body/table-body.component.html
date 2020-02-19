@@ -4,27 +4,23 @@
   (scroll)="onScrollHandler($event)"
   #tableBodyRef
   >
-  <div
-    class='table-body_content-wrapper'>
-    <app-table-body-row
-      *ngFor='let dataItem of data; index as i'
-      [dataItem]='dataItem'
-      [meta]='meta'
-      [dataIdx]='i'
-      [getWidth]='getWidth'
-      [getHeight]='getHeight'
-      [tableBodyRef]='tableBodyRef'
-    >
-    <app-table-body-cell
-      *ngFor='let metaItem of meta; index as i'
-      [metaItem]='metaItem'
-      [dataItem]='dataItem'
-      [metaIdx]='i'
-      [dataIdx]='dataIdx'
-      [getWidth]='getWidth'
-      [getHeight]='getHeight'
-      [tableBodyRef]='tableBodyRef'
-    ></app-table-body-cell>
-  </app-table-body-row>
+  <div appMatrixCalcHeight>
+    <div class='table-body_content-wrapper'>
+        <ng-container *ngFor='let dataItem of newData;index as dataIdx'>
+          <ng-container *ngFor='let metaItem of meta; index as metaIdx'>
+            <app-table-body-cell
+              [metaItem]='metaItem'
+              [dataItem]='dataItem'
+              [metaIdx]='metaIdx'
+              [dataIdx]='dataItem.dataIndex || dataIdx'
+              [getWidth]='getWidth'
+              [getHeight]='getHeight'
+              [tableBodyRef]='tableBodyRef'
+              [bodyHeight]='bodyHeight'
+            >
+          </app-table-body-cell>
+          </ng-container>
+        </ng-container> 
+    </div>
   </div>
 </div>
