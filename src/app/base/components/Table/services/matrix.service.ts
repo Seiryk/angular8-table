@@ -6,7 +6,7 @@ export class MatrixService {
   matrix = new Map();
   scrollMatrix = new Map();
 
-  setItemToMatrix = ({ dataIdx, metaIdx, objForSave }) => {
+  private setItemToMatrix = ({ dataIdx, metaIdx, objForSave }) => {
     let row = this.matrix.get(dataIdx);
     if (!row) {
       row = new Map();
@@ -36,7 +36,7 @@ export class MatrixService {
     return row.get(metaIdx);
   }
 
-  getPrevItems = ({ dataIdx, metaIdx }) => {
+  private getPrevItems = ({ dataIdx, metaIdx }) => {
     let topItem = null;
     let leftItem = null;
 
@@ -54,7 +54,7 @@ export class MatrixService {
     return { leftItem, topItem };
   }
 
-  getPosition = (arg) => {
+  private getPosition = (arg) => {
     const { leftItem, topItem } = this.getPrevItems(arg)
     let top = 0, left = 0;
     if (topItem) top = topItem.top + topItem.height;
@@ -63,7 +63,7 @@ export class MatrixService {
     return { left, top };
   }
 
-  setData = (arg) => {
+  setData = (arg) => {//
     const { dataIdx, metaIdx, width, height } = arg;
     const { left, top } = this.getPosition({ dataIdx, metaIdx })
     const objForSave = { left, top, width, height };
@@ -77,7 +77,6 @@ export class MatrixService {
 
   //--------
   increaseHeightSubj = new Subject();
-  scrollSubj = new Subject();
   constructor() { 
 
   }

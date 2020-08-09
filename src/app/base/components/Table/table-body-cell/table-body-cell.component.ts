@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatrixService } from '../services/matrix.service';
 
-const VIRTUAL_RESERVE = 0;
 
 @Component({
   selector: 'app-table-body-cell',
@@ -13,23 +12,11 @@ export class TableBodyCellComponent implements OnInit {
   @Input() dataItem;
   @Input() dataIdx;
   @Input() metaIdx;
-  @Input() getWidth;
-  @Input() getHeight;
-  @Input() tableBodyRef;
-  @Input() bodyHeight;
   styles = {}
   constructor(
     private matrixService: MatrixService
   ) {
 
-  }
-
-  shouldRenderCell = ({ top }): Boolean => {
-    const { scrollTop, scrollLeft, offsetHeight, offsetWidth } = this.tableBodyRef;
-    const minPointY = scrollTop > VIRTUAL_RESERVE ? scrollTop - VIRTUAL_RESERVE : 0;
-    const maxPointY = scrollTop + offsetHeight + VIRTUAL_RESERVE;
-
-    return (minPointY <= parseFloat(top)) && (parseFloat(top) <= maxPointY);
   }
 
   wrappWithPx = ({left, top, width, height}) => ({
